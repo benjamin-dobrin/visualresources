@@ -86,6 +86,13 @@ site shrinks and converts them automatically, so a large file is fine.
   the two numbers in. Tick "one of our bases" only for Philadelphia and New York.
 - **Trusted by** — the client names across the top of the homepage. Only list clients who
   have said yes.
+- **Client logo files** — leave this empty and the names above show as text, which is
+  what the site does today. Add logos and they replace the names automatically. Ask each
+  client's marketing team for their logo as an **SVG, or a PNG on a transparent
+  background, in black or one dark colour**. The site puts every logo in the same ink
+  colour at the same height so no single client shouts over the others, so a full-colour
+  logo will be converted and may not look as intended. Six to eight logos is the right
+  number for one row.
 - **Quotes** — client testimonials. One shows on the homepage.
 - **Homepage headline and photo** — the biggest thing a visitor sees. Change with care.
 
