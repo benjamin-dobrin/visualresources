@@ -1,23 +1,21 @@
 ---
 import { site } from '../lib/site';
 const logos = site.client_logos as { name: string; src: string }[];
-const widths = [96, 72, 110, 84, 100, 78];
+const names = site.client_names as string[];
 ---
-<section class="trust wrap">
+<section class="trust wrap" aria-label="Clients">
   <span class="k">Trusted by</span>
-  <div class="logos">
-    {logos.length
-      ? logos.map((l) => <img src={l.src} alt={l.name} height="22" />)
-      : widths.map((w) => <span class="ph" style={`width: ${w}px`}></span>)}
-  </div>
-  {!logos.length && <span class="mono note">[CLIENT LOGOS]</span>}
+  {logos.length ? (
+    <ul class="logos">{logos.map((l) => <li><img src={l.src} alt={l.name} height="22" /></li>)}</ul>
+  ) : (
+    <ul class="names">{names.map((n) => <li class="serif">{n}</li>)}</ul>
+  )}
 </section>
 
 <style>
-  .trust { display: flex; align-items: center; gap: 40px; padding-top: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
-  .logos { display: flex; gap: 48px; align-items: center; flex: 1; overflow: hidden; }
+  .trust { display: flex; align-items: center; gap: 40px; padding-top: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--rule); }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 12px 36px; flex: 1; flex-wrap: wrap; }
   .logos img { height: 22px; width: auto; opacity: 0.85; }
-  .ph { display: block; height: 18px; background: var(--rule); flex-shrink: 0; }
-  .note { font-size: 11px; color: var(--frame); white-space: nowrap; }
-  @media (max-width: 680px) { .trust { gap: 20px; } .logos { gap: 24px; } .note { display: none; } }
+  .names li { font-size: 18px; line-height: 1; color: var(--body); white-space: nowrap; }
+  @media (max-width: 900px) { .trust { flex-direction: column; align-items: flex-start; gap: 14px; } ul { gap: 10px 28px; } .names li { font-size: 17px; } }
 </style>

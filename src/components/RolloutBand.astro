@@ -1,12 +1,12 @@
 ---
 import UsMap from './UsMap.astro';
 import { site, url } from '../lib/site';
-interface Props { link?: boolean }
-const { link = true } = Astro.props;
+interface Props { link?: boolean; eyebrow?: string }
+const { link = true, eyebrow = 'Rollouts & national installation' } = Astro.props;
 ---
 <section class="rollout wrap">
   <div class="copy">
-    <p class="k k-red">Rollouts &amp; national installation</p>
+    <p class="k k-red">{eyebrow}</p>
     <h2 class="display">Forty locations should feel like one project.</h2>
     <p class="lede">One producer, one schedule, one set of approved proofs. Regional fabrication keeps freight short and install windows honest. Completion photos from every site before you see an invoice.</p>
     <div class="stats">
@@ -30,6 +30,6 @@ const { link = true } = Astro.props;
   .val { font-size: 48px; line-height: 1; }
   .stats .k { font-size: 11px; }
   .link-rule { align-self: flex-start; }
-  .mapwrap { grid-column: 8 / span 5; }
+  .mapwrap { grid-column: 7 / span 6; }
   @media (max-width: 900px) { .copy { grid-column: span 12; } .mapwrap { grid-column: span 12; max-width: 520px; } }
 </style>

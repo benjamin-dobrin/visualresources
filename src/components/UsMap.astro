@@ -1,19 +1,64 @@
 ---
+/**
+ * The install map. State outlines are pre-projected (Albers, US standard parallels) in
+ * src/data/us-map.json; cities come from site.json as lat/lon and are projected here with
+ * the same parameters, so adding a city is one line of JSON.
+ */
+import map from '../data/us-map.json';
 import { site } from '../lib/site';
-const dots = site.map_dots as [number, number][];
+
+type City = { name: string; state: string; lat: number; lon: number; base?: boolean };
+const cities = site.cities as City[];
+
+const rad = (d: number) => (d * Math.PI) / 180;
+const { lat0, lon0, lat1, lat2 } = map.albers;
+const n = (Math.sin(rad(lat1)) + Math.sin(rad(lat2))) / 2;
+const C = Math.cos(rad(lat1)) ** 2 + 2 * n * Math.sin(rad(lat1));
+const r0 = Math.sqrt(C - 2 * n * Math.sin(rad(lat0))) / n;
+function project(lon: number, lat: number) {
+  const r = Math.sqrt(C - 2 * n * Math.sin(rad(lat))) / n;
+  const t = n * (rad(lon) - rad(lon0));
+  const x = r * Math.sin(t), y = r0 - r * Math.cos(t);
+  const { minx, maxy, scale, pad } = map.fit;
+  return { x: (x - minx) * scale + pad, y: (maxy - y) * scale + pad };
+}
+const pins = cities.map((c) => ({ ...c, ...project(c.lon, c.lat) }));
+const [W, H] = map.viewBox;
+const bases = pins.filter((p) => p.base).length;
+const installs = pins.length - bases;
 ---
-<div class="map">
-  <svg viewBox="0 0 520 380" width="100%" height="100%" aria-hidden="true">
-    <path d="M40 110 L120 92 L220 86 L310 88 L370 100 L410 96 L460 120 L478 160 L455 200 L440 250 L380 300 L310 310 L260 290 L190 300 L130 270 L70 220 L35 160 Z" fill="none" stroke="var(--ink)" stroke-width="1.5"></path>
-    <circle cx="410" cy="150" r="7" fill="var(--red)"></circle><text x="424" y="170">Philadelphia</text>
-    <circle cx="428" cy="132" r="7" fill="var(--red)"></circle><text x="442" y="126">New York</text>
-    {dots.map(([x, y]) => <circle cx={x} cy={y} r="4" fill="var(--ink)"></circle>)}
+<figure class="map">
+  <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={`Map of the United States showing ${cities.map((c) => c.name).join(' and ')}`}>
+    <path class="states" d={map.paths}></path>
+    {pins.map((p) => (
+      <g class:list={['pin', { base: p.base }]} tabindex="0" transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`}>
+        {p.base && <circle class="ring" r="11"></circle>}
+        <circle class="dot" r={p.base ? 5 : 3.2}></circle>
+        <text class="label" x={p.name === 'New York' ? 12 : 12} y={p.name === 'Philadelphia' ? 18 : -8}>{p.name}, {p.state}</text>
+      </g>
+    ))}
   </svg>
-  <span class="mono note">MAP — {site.map_note}</span>
-</div>
+  <figcaption class="mono">
+    <span><i class="sw base"></i> Base{bases === 1 ? '' : 's'} · Philadelphia &amp; New York</span>
+    <span><i class="sw"></i> {installs ? `${installs} install cities` : 'Install cities added as jobs complete'}</span>
+  </figcaption>
+</figure>
+
 <style>
-  .map { position: relative; aspect-ratio: 520 / 380; }
-  svg { display: block; }
-  text { font-family: var(--sans); font-size: 12px; fill: var(--ink); }
-  .note { position: absolute; left: 0; bottom: 0; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+  .map { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  svg { display: block; overflow: visible; }
+  .states { fill: var(--stock); stroke: rgba(32, 28, 27, 0.22); stroke-width: 0.8; stroke-linejoin: round; }
+  .pin { cursor: default; outline: none; }
+  .dot { fill: var(--ink); }
+  .base .dot { fill: var(--red); }
+  .ring { fill: none; stroke: var(--red); stroke-width: 1; opacity: 0.55; transform-box: fill-box; transform-origin: center; animation: pulse 2.8s ease-out infinite; }
+  .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; fill: var(--ink); paint-order: stroke; stroke: var(--paper); stroke-width: 3px; stroke-linejoin: round; opacity: 0; transition: opacity 0.15s; }
+  .base .label { opacity: 1; }
+  .pin:hover .label, .pin:focus-visible .label { opacity: 1; }
+  .pin:hover .dot, .pin:focus-visible .dot { fill: var(--red); }
+  figcaption { display: flex; gap: 24px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.04em; color: var(--muted); }
+  .sw { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); margin-right: 8px; vertical-align: middle; }
+  .sw.base { background: var(--red); }
+  @keyframes pulse { 0% { transform: scale(0.45); opacity: 0.7; } 100% { transform: scale(1.6); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .ring { animation: none; opacity: 0.35; } }
 </style>

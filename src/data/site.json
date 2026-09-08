@@ -4,15 +4,32 @@
   "description": "Visual Resources is a print production partner based in Philadelphia and New York. One producer takes your signage, graphics and environments from file to installed, in one location or fifty, anywhere in the country.",
   "email": "hello@visualresources.net",
   "phones": [
-    { "city": "Philadelphia", "display": "[Philadelphia phone]", "tel": "" },
-    { "city": "New York", "display": "[New York phone]", "tel": "" }
+    {
+      "city": "Philadelphia",
+      "display": "[Philadelphia phone]",
+      "tel": ""
+    },
+    {
+      "city": "New York",
+      "display": "[New York phone]",
+      "tel": ""
+    }
   ],
   "booking_url": "",
   "form_endpoint": "https://script.google.com/macros/s/AKfycbxG8k13JeykSqdn6kvCq1zEWlSfU4inFGwMXHIwv5FZBbiQDY3dRouDyD2SHJLE0sJVJQ/exec",
   "stats": [
-    { "label": "Locations installed", "value": "[—]" },
-    { "label": "States", "value": "[—]" },
-    { "label": "Contact, start to finish", "value": "One" }
+    {
+      "label": "Locations installed",
+      "value": "[—]"
+    },
+    {
+      "label": "States",
+      "value": "[—]"
+    },
+    {
+      "label": "Contact, start to finish",
+      "value": "One"
+    }
   ],
   "client_logos": [],
   "testimonials": [
@@ -23,6 +40,29 @@
       "company": "[Company]"
     }
   ],
-  "map_note": "Every city we have installed in. Placeholder dots until the real list is in.",
-  "map_dots": [[100,150],[120,210],[190,170],[260,120],[290,200],[330,260],[370,180],[395,230],[230,250],[150,120]]
+  "cities": [
+    {
+      "name": "Philadelphia",
+      "state": "PA",
+      "lat": 39.9526,
+      "lon": -75.1652,
+      "base": true
+    },
+    {
+      "name": "New York",
+      "state": "NY",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "base": true
+    }
+  ],
+  "client_names": [
+    "Philadelphia Phillies",
+    "Merck",
+    "DonorPerfect",
+    "Jefferson Health",
+    "6abc Action News",
+    "Ricoh",
+    "Leblon"
+  ]
 }
