@@ -97,6 +97,7 @@ Components: `Nav`, `Footer`, `Hero` (photo + paper card), `TrustStrip`, `Pillars
 - [ ] Real photos in place (hero + six proof frames minimum), no placeholder blocks visible
 - [ ] Real phone numbers, real stats, client logos or list, at least one testimonial
 - [ ] Mail records added on Cloudflare so hello@visualresources.net receives (currently none)
+- [ ] visual-resources.net (the hyphenated domain printed on the business card) currently serves a 404 from another host; redirect it to visualresources.net
 - [ ] Any fixes the owner made to the live site since July carried over
 - [ ] Owner has granted write access; PR from fork `redesign` → upstream `main` opened
 - [ ] Merge; in the upstream repo Settings → Pages, switch source to **GitHub Actions**

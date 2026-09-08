@@ -3,18 +3,6 @@
   "tagline": "The production partner behind the brands you walk past.",
   "description": "Visual Resources is a print production partner based in Philadelphia and New York. One producer takes your signage, graphics and environments from file to installed, in one location or fifty, anywhere in the country.",
   "email": "hello@visualresources.net",
-  "phones": [
-    {
-      "city": "Philadelphia",
-      "display": "[Philadelphia phone]",
-      "tel": ""
-    },
-    {
-      "city": "New York",
-      "display": "[New York phone]",
-      "tel": ""
-    }
-  ],
   "booking_url": "",
   "form_endpoint": "https://script.google.com/macros/s/AKfycbxG8k13JeykSqdn6kvCq1zEWlSfU4inFGwMXHIwv5FZBbiQDY3dRouDyD2SHJLE0sJVJQ/exec",
   "stats": [
@@ -64,5 +52,17 @@
     "6abc Action News",
     "Ricoh",
     "Leblon"
-  ]
+  ],
+  "contact": {
+    "name": "Jonathan Goldring",
+    "role": "Producer",
+    "office": "484 351 8100",
+    "office_tel": "+14843518100",
+    "cell": "484 686 2564",
+    "cell_tel": "+14846862564",
+    "address": [
+      "400 Stenton Ave, Suite 202",
+      "Plymouth Meeting, PA 19462"
+    ]
+  }
 }
