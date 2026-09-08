@@ -83,14 +83,24 @@ Components: `Nav`, `Footer`, `Hero` (photo + paper card), `TrustStrip`, `Pillars
 
 ## Order of work
 
-1. **Scaffold** Astro project on `redesign`; tokens, fonts, Base layout, Nav, Footer. Preview live on the fork.
-2. **Home** exactly to the C2 + red plate design, responsive to 390px. Photo placeholders until real photos arrive.
-3. **Work**: content collection, case study template, work index. Port the six existing case studies as drafts.
-4. **Rollouts, About, Start a project.** Three simple pages reusing home components.
-5. **Form**: wire to the existing Apps Script, add file link, success/error states.
-6. **CMS** trial and config; short editor guide in `docs/EDITING.md`.
-7. **SEO/technical**: OG image, LocalBusiness schema (both cities), sitemap, robots, redirects.
+1. ~~**Scaffold** Astro project, tokens, fonts, Base layout, Nav, Footer, preview on the fork.~~
+2. ~~**Home** to the C2 + red plate design, responsive to 390px.~~
+3. ~~**Work**: content collection, case study template, work index.~~ Ten real projects from the
+   owner's archive, with photography. Copy, specs and some cities are still bracketed.
+4. ~~**Rollouts, About, Start a project.**~~ Real US install map (Albers projection, cities from
+   settings), real contact details, client names in the trust strip.
+5. ~~**Form**: wired to the existing Apps Script with the same field names, plus a file-link field.~~
+6. ~~**CMS**: `.pages.yml` for Pages CMS and `docs/EDITING.md`.~~ Awaiting the owner installing it.
+7. ~~**SEO/technical**: share card, ProfessionalService schema, sitemap, generated robots, redirects.~~
 8. **Launch**: see checklist.
+
+### Left to do before launch
+
+- Owner fills in the bracketed copy, specs and cities (through the CMS).
+- Client names on the trust strip and case studies need the clients' permission.
+- Real rollout figures (locations installed, states) in place of `[—]`.
+- At least one real testimonial.
+- Owner installs Pages CMS on the repository and confirms the editing flow works.
 
 ## Launch checklist
 
