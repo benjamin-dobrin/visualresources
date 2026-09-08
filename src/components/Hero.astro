@@ -2,10 +2,9 @@
 import Photo from './Photo.astro';
 import CropMarks from './CropMarks.astro';
 import { site, url } from '../lib/site';
-import hero from '../assets/hero.jpg';
 ---
 <section class="hero">
-  <Photo src={hero} alt="Large-format exterior banner installed on the stadium façade at Citizens Bank Park, Philadelphia" class="bg" sizes="100vw" loading="eager" />
+  <Photo src={site.hero_image} alt={site.hero_alt} tone="warm" label="PHOTO — full-bleed hero" class="bg" sizes="100vw" loading="eager" />
   <div class="card">
     <CropMarks />
     <p class="k k-red">Print production · Philadelphia &amp; New York · Nationwide</p>

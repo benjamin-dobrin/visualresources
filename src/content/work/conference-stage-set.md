@@ -1,14 +1,14 @@
 ---
-title: "Stadium exterior banner"
-client: "Philadelphia Phillies"
-city: "Philadelphia"
-state: "PA"
-application: exterior
-specs: "[Size] · large-format exterior banner · stadium façade · [Install]"
-featured: true
-order: 2
-hero: ./hero.jpg
-gallery: [./detail-1.jpg]
+title: "Conference stage set"
+client: "[Client]"
+city: "[City]"
+state: ""
+application: events
+specs: "[Width] · stage backdrop panels · lit · [Event]"
+featured: false
+order: 10
+hero: /media/work/conference-stage-set/hero.jpg
+gallery: [/media/work/conference-stage-set/detail-1.jpg]
 ---
 ## The brief
 

@@ -5,9 +5,10 @@
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { resolveMedia } from '../lib/media';
 
 interface Props {
-  src?: ImageMetadata;
+  src?: ImageMetadata | string;
   alt?: string;
   label?: string;
   tone?: 'warm' | 'stone' | 'night' | 'light' | 'slate' | 'brown' | 'sand' | 'steel';
@@ -16,11 +17,12 @@ interface Props {
   loading?: 'eager' | 'lazy';
 }
 const { src, alt = '', label = 'Photo', tone = 'stone', sizes = '(max-width: 900px) 100vw, 50vw', class: cls = '', loading = 'lazy' } = Astro.props;
+const img = typeof src === 'string' ? await resolveMedia(src) : src;
 const light = tone === 'light' || tone === 'sand';
 ---
-<div class:list={['photo', cls, { placeholder: !src, light: !src && light }]} data-tone={src ? undefined : tone}>
-  {src ? (
-    <Image src={src} alt={alt} widths={[480, 960, 1440, 2000]} sizes={sizes} loading={loading} />
+<div class:list={['photo', cls, { placeholder: !img, light: !img && light }]} data-tone={img ? undefined : tone}>
+  {img ? (
+    <Image src={img} alt={alt} widths={[480, 960, 1440, 2000]} sizes={sizes} loading={loading} />
   ) : (
     <span class="cap mono">{label}</span>
   )}

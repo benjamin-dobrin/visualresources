@@ -7,8 +7,8 @@ application: campaign
 specs: "[Size] · exterior skybridge banner · [Material] · [Install]"
 featured: false
 order: 9
-hero: ./hero.jpg
-gallery: [./detail-1.jpg]
+hero: /media/work/skybridge-banner/hero.jpg
+gallery: [/media/work/skybridge-banner/detail-1.jpg]
 ---
 ## The brief
 

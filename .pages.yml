@@ -1,0 +1,251 @@
+# Pages CMS configuration — app.pagescms.org
+# Lets a non-technical editor add work and change site details through a form.
+# It edits the files in this repository directly, so every change is a normal commit
+# and the site rebuilds itself.
+
+media:
+  input: src/media
+  output: /media
+  categories: [image]
+  extensions: [jpg, jpeg, png, webp, avif]
+
+content:
+  - name: work
+    label: Work
+    type: collection
+    path: src/content/work
+    filename: '{primary}.md'
+    format: yaml-frontmatter
+    exclude: [README.md]
+    view:
+      fields: [title, client, city, featured, order]
+      primary: title
+      sort: [order, title, city, year]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Project title
+        type: string
+        required: true
+        description: Short and plain, e.g. "Clubhouse corridor wraps".
+      - name: client
+        label: Client
+        type: string
+        description: The client's name, or leave as [Client] if they have not approved being named.
+      - name: city
+        label: City
+        type: string
+        description: Where the job was installed, e.g. Philadelphia.
+      - name: state
+        label: State
+        type: string
+        description: Two letters, e.g. PA. Leave blank if unknown.
+      - name: year
+        label: Year
+        type: number
+      - name: application
+        label: Kind of work
+        type: select
+        required: true
+        default: environments
+        options:
+          values:
+            - name: environments
+              label: Environments & interiors
+            - name: exterior
+              label: Exterior & storefront
+            - name: events
+              label: Events & exhibits
+            - name: campaign
+              label: Campaign & retail graphics
+            - name: construction
+              label: Construction & site
+            - name: film
+              label: Film & set
+            - name: vehicles
+              label: Vehicle graphics
+      - name: specs
+        label: Spec line
+        type: string
+        description: One line, separated by middots. Size · material · quantity · footprint · install.
+      - name: summary
+        label: Search description
+        type: text
+        description: One sentence for Google and shared links. Optional.
+      - name: hero
+        label: Main photo
+        type: image
+        description: The wide finished shot. Shown large at the top of the project page.
+        options:
+          path: src/media/work
+      - name: gallery
+        label: More photos
+        type: image
+        description: Detail and install shots, shown below the text.
+        options:
+          multiple:
+            max: 6
+          path: src/media/work
+      - name: featured
+        label: Show on the homepage
+        type: boolean
+        default: false
+        description: The homepage shows the first six featured projects, in the order below.
+      - name: order
+        label: Order
+        type: number
+        default: 99
+        description: Lower numbers come first. Use 1 for the strongest project.
+      - name: draft
+        label: Hide from the site
+        type: boolean
+        default: false
+      - name: body
+        label: The story
+        type: rich-text
+        description: "Keep the three headings: The brief, What we did, The result."
+
+  - name: site
+    label: Site details
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: tagline
+        label: Homepage headline
+        type: string
+      - name: description
+        label: Site description for Google
+        type: text
+      - name: email
+        label: Email address
+        type: string
+      - name: contact
+        label: Producer
+        type: object
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: role
+            label: Role
+            type: string
+          - name: office
+            label: Office number, as shown
+            type: string
+          - name: office_tel
+            label: Office number for tapping to call
+            type: string
+            description: Digits only with the country code, e.g. +14843518100.
+          - name: cell
+            label: Cell number, as shown
+            type: string
+          - name: cell_tel
+            label: Cell number for tapping to call
+            type: string
+          - name: address
+            label: Address lines
+            type: string
+            list: true
+      - name: booking_url
+        label: Booking link
+        type: string
+        description: A Calendly or similar link. Leave blank to show it as plain text.
+      - name: stats
+        label: Rollout figures
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: value
+            label: Figure
+            type: string
+      - name: cities
+        label: Cities on the map
+        type: object
+        list:
+          collapsible:
+            summary: '{name}, {state}'
+        fields:
+          - name: name
+            label: City
+            type: string
+          - name: state
+            label: State
+            type: string
+          - name: lat
+            label: Latitude
+            type: number
+            description: Search "<city> latitude longitude" and paste the two numbers here.
+          - name: lon
+            label: Longitude
+            type: number
+          - name: base
+            label: One of our bases
+            type: boolean
+            default: false
+            description: Bases show as larger red pins with a permanent label.
+      - name: client_names
+        label: Trusted by
+        type: string
+        list: true
+        description: Only name clients who have agreed to it.
+      - name: testimonials
+        label: Quotes
+        type: object
+        list:
+          collapsible:
+            summary: '{name}, {company}'
+        fields:
+          - name: quote
+            label: Quote
+            type: text
+          - name: name
+            label: Name
+            type: string
+          - name: title
+            label: Job title
+            type: string
+          - name: company
+            label: Company
+            type: string
+      - name: hero_image
+        label: Homepage photo
+        type: image
+        options:
+          path: src/media/site
+      - name: hero_alt
+        label: Homepage photo description
+        type: string
+        description: Describes the photo for screen readers and Google.
+      - name: install_image
+        label: Photo beside the quote
+        type: image
+        options:
+          path: src/media/site
+      - name: install_alt
+        label: That photo's description
+        type: string
+      - name: name
+        label: Business name
+        type: string
+      - name: client_logos
+        label: Client logo files
+        type: object
+        list: true
+        description: Leave empty to show client names as text instead.
+        fields:
+          - name: name
+            label: Client name
+            type: string
+          - name: src
+            label: Logo file
+            type: image
+      - name: form_endpoint
+        label: Form destination
+        type: string
+        hidden: true

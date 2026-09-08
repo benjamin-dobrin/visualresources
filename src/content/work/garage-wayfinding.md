@@ -1,14 +1,14 @@
 ---
-title: "Conference stage set"
+title: "Parking garage wayfinding"
 client: "[Client]"
 city: "[City]"
 state: ""
-application: events
-specs: "[Width] · stage backdrop panels · lit · [Event]"
-featured: false
-order: 10
-hero: ./hero.jpg
-gallery: [./detail-1.jpg]
+application: environments
+specs: "Level graphics P1–P3 · paint + vinyl · elevator lobbies and glazing"
+featured: true
+order: 4
+hero: /media/work/garage-wayfinding/hero.jpg
+gallery: [/media/work/garage-wayfinding/detail-1.jpg, /media/work/garage-wayfinding/detail-2.jpg]
 ---
 ## The brief
 

@@ -1,14 +1,14 @@
 ---
-title: "Island exhibit"
-client: "DonorPerfect"
-city: "[City]"
-state: ""
+title: "Press room step-and-repeat"
+client: "Philadelphia Phillies"
+city: "Philadelphia"
+state: "PA"
 application: events
-specs: "[Booth size] · island exhibit · hanging sign + backlit walls · [Show]"
-featured: true
-order: 3
-hero: ./hero.jpg
-gallery: [./detail-1.jpg, ./detail-2.jpg]
+specs: "[Size] · step-and-repeat wall + podium graphics · press conference room"
+featured: false
+order: 8
+hero: /media/work/press-room-backdrop/hero.jpg
+gallery: [/media/work/press-room-backdrop/detail-1.jpg, /media/work/press-room-backdrop/detail-2.jpg]
 ---
 ## The brief
 

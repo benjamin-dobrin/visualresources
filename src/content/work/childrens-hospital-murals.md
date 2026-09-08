@@ -7,8 +7,8 @@ application: environments
 specs: "Photographic wall murals · patient rooms and corridors · [Material]"
 featured: false
 order: 7
-hero: ./hero.jpg
-gallery: [./detail-1.jpg, ./detail-2.jpg]
+hero: /media/work/childrens-hospital-murals/hero.jpg
+gallery: [/media/work/childrens-hospital-murals/detail-1.jpg, /media/work/childrens-hospital-murals/detail-2.jpg]
 ---
 ## The brief
 

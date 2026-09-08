@@ -2,12 +2,11 @@
 import Photo from './Photo.astro';
 import CmykDots from './CmykDots.astro';
 import { site } from '../lib/site';
-import installDay from '../assets/install-day.jpg';
 const t = site.testimonials[0];
 ---
 {t && (
   <section class="quote wrap">
-    <Photo src={installDay} alt="Crew on a boom lift installing a building banner" class="pic" sizes="(max-width: 900px) 100vw, 40vw" />
+    <Photo src={site.install_image} alt={site.install_alt} tone="steel" label="PHOTO — install day" class="pic" sizes="(max-width: 900px) 100vw, 40vw" />
     <blockquote>
       <CmykDots />
       <p class="serif"><em>“{t.quote}”</em></p>

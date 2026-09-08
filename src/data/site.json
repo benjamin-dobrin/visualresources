@@ -64,5 +64,9 @@
       "400 Stenton Ave, Suite 202",
       "Plymouth Meeting, PA 19462"
     ]
-  }
+  },
+  "hero_image": "/media/site/hero.jpg",
+  "hero_alt": "Large-format exterior banner installed on the façade of Citizens Bank Park, Philadelphia",
+  "install_image": "/media/site/install-day.jpg",
+  "install_alt": "Crew on a boom lift installing a building-sized banner"
 }

@@ -1,14 +1,14 @@
 ---
-title: "Cafeteria wall wrap and etched glass"
-client: "[Client]"
+title: "Island exhibit"
+client: "DonorPerfect"
 city: "[City]"
 state: ""
-application: environments
-specs: "[Size] · printed wall wrap + etched-glass film · corporate cafeteria"
+application: events
+specs: "[Booth size] · island exhibit · hanging sign + backlit walls · [Show]"
 featured: true
-order: 5
-hero: ./hero.jpg
-gallery: [./detail-1.jpg, ./detail-2.jpg]
+order: 3
+hero: /media/work/donorperfect-exhibit/hero.jpg
+gallery: [/media/work/donorperfect-exhibit/detail-1.jpg, /media/work/donorperfect-exhibit/detail-2.jpg]
 ---
 ## The brief
 

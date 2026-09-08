@@ -1,14 +1,14 @@
 ---
-title: "Parking garage wayfinding"
-client: "[Client]"
-city: "[City]"
-state: ""
-application: environments
-specs: "Level graphics P1–P3 · paint + vinyl · elevator lobbies and glazing"
+title: "Stadium exterior banner"
+client: "Philadelphia Phillies"
+city: "Philadelphia"
+state: "PA"
+application: exterior
+specs: "[Size] · large-format exterior banner · stadium façade · [Install]"
 featured: true
-order: 4
-hero: ./hero.jpg
-gallery: [./detail-1.jpg, ./detail-2.jpg]
+order: 2
+hero: /media/work/ballpark-exterior-banner/hero.jpg
+gallery: [/media/work/ballpark-exterior-banner/detail-1.jpg]
 ---
 ## The brief
 

@@ -1,14 +1,14 @@
 ---
-title: "Clubhouse corridor wraps"
-client: "Philadelphia Phillies"
-city: "Philadelphia"
-state: "PA"
+title: "Cafeteria wall wrap and etched glass"
+client: "[Client]"
+city: "[City]"
+state: ""
 application: environments
-specs: "[Sq ft] · full-height wall wrap · service corridors · Citizens Bank Park"
+specs: "[Size] · printed wall wrap + etched-glass film · corporate cafeteria"
 featured: true
-order: 1
-hero: ./hero.jpg
-gallery: [./detail-1.jpg, ./detail-2.jpg]
+order: 5
+hero: /media/work/cafeteria-wall-wrap/hero.jpg
+gallery: [/media/work/cafeteria-wall-wrap/detail-1.jpg, /media/work/cafeteria-wall-wrap/detail-2.jpg]
 ---
 ## The brief
 

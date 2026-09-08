@@ -1,14 +1,14 @@
 ---
-title: "Press room step-and-repeat"
+title: "Clubhouse corridor wraps"
 client: "Philadelphia Phillies"
 city: "Philadelphia"
 state: "PA"
-application: events
-specs: "[Size] · step-and-repeat wall + podium graphics · press conference room"
-featured: false
-order: 8
-hero: ./hero.jpg
-gallery: [./detail-1.jpg, ./detail-2.jpg]
+application: environments
+specs: "[Sq ft] · full-height wall wrap · service corridors · Citizens Bank Park"
+featured: true
+order: 1
+hero: /media/work/ballpark-corridor-wraps/hero.jpg
+gallery: [/media/work/ballpark-corridor-wraps/detail-1.jpg, /media/work/ballpark-corridor-wraps/detail-2.jpg]
 ---
 ## The brief
 

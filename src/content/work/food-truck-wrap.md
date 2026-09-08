@@ -7,7 +7,7 @@ application: vehicles
 specs: "Full vehicle wrap · [Material] · [Install]"
 featured: true
 order: 6
-hero: ./hero.jpg
+hero: /media/work/food-truck-wrap/hero.jpg
 gallery: []
 ---
 ## The brief
