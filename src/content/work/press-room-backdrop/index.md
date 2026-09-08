@@ -1,14 +1,14 @@
 ---
-title: "Brushed metal lobby letters"
-client: "[Client]"
+title: "Press room step-and-repeat"
+client: "Philadelphia Phillies"
 city: "Philadelphia"
 state: "PA"
-application: environments
-specs: "[Letter height] · brushed aluminum · office lobby · after-hours install"
-featured: true
-order: 3
-# hero: ./hero.jpg          ← drop the wide finished-install photo in this folder and uncomment
-# gallery: [./detail.jpg, ./install.jpg]
+application: events
+specs: "[Size] · step-and-repeat wall + podium graphics · press conference room"
+featured: false
+order: 8
+hero: ./hero.jpg
+gallery: [./detail-1.jpg, ./detail-2.jpg]
 ---
 ## The brief
 

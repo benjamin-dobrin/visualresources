@@ -1,14 +1,14 @@
 ---
-title: "Service van wraps"
-client: "[Plumbing company]"
+title: "Island exhibit"
+client: "DonorPerfect"
 city: "[City]"
 state: ""
-application: vehicles
-specs: "Fleet of 3 · full wrap · [Material] · [Install]"
+application: events
+specs: "[Booth size] · island exhibit · hanging sign + backlit walls · [Show]"
 featured: true
-order: 5
-# hero: ./hero.jpg          ← drop the wide finished-install photo in this folder and uncomment
-# gallery: [./detail.jpg, ./install.jpg]
+order: 3
+hero: ./hero.jpg
+gallery: [./detail-1.jpg, ./detail-2.jpg]
 ---
 ## The brief
 

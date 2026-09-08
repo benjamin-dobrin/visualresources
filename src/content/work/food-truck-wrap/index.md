@@ -1,14 +1,14 @@
 ---
-title: "Illuminated café sign"
-client: "[Café name]"
-city: "Philadelphia"
-state: "PA"
-application: exterior
-specs: "[Size] · illuminated storefront sign · [Material] · Fishtown"
+title: "Food truck wrap"
+client: "Leblon"
+city: "New York"
+state: "NY"
+application: vehicles
+specs: "Full vehicle wrap · [Material] · [Install]"
 featured: true
-order: 1
-# hero: ./hero.jpg          ← drop the wide finished-install photo in this folder and uncomment
-# gallery: [./detail.jpg, ./install.jpg]
+order: 6
+hero: ./hero.jpg
+gallery: []
 ---
 ## The brief
 

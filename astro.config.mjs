@@ -13,5 +13,12 @@ export default defineConfig({
   build: { format: 'directory' },
   redirects: {
     '/story': '/about/',
+    // Old placeholder case studies from the July 2026 site; the real work replaced them.
+    '/work/cafe-sign': '/work/',
+    '/work/van-wraps': '/work/food-truck-wrap/',
+    '/work/lobby-letters': '/work/',
+    '/work/window-graphics': '/work/cafeteria-wall-wrap/',
+    '/work/trade-show-booth': '/work/donorperfect-exhibit/',
+    '/work/grand-opening-banner': '/work/ballpark-exterior-banner/',
   },
 });

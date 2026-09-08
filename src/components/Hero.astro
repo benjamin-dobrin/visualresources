@@ -2,9 +2,10 @@
 import Photo from './Photo.astro';
 import CropMarks from './CropMarks.astro';
 import { site, url } from '../lib/site';
+import hero from '../assets/hero.jpg';
 ---
 <section class="hero">
-  <Photo tone="warm" label="PHOTO — full-bleed hero. Your best install at dusk, wide, with the city visible behind it." class="bg" sizes="100vw" loading="eager" />
+  <Photo src={hero} alt="Large-format exterior banner installed on the stadium façade at Citizens Bank Park, Philadelphia" class="bg" sizes="100vw" loading="eager" />
   <div class="card">
     <CropMarks />
     <p class="k k-red">Print production · Philadelphia &amp; New York · Nationwide</p>
@@ -20,6 +21,7 @@ import { site, url } from '../lib/site';
 <style>
   .hero { position: relative; min-height: clamp(560px, 54vw, 780px); display: flex; align-items: flex-end; }
   .hero :global(.bg) { position: absolute; inset: 0; }
+  .hero :global(.bg img) { object-position: 50% 30%; }
   .hero :global(.bg .cap) { left: auto; right: 24px; top: 20px; bottom: auto; text-align: right; max-width: 40%; }
   .card { position: relative; margin: 0 0 48px 48px; width: min(720px, calc(100% - 96px)); background: var(--paper); padding: 48px 52px 44px; display: flex; flex-direction: column; gap: 22px; }
   h1 { font-size: clamp(38px, 4.3vw, 62px); line-height: 1.02; letter-spacing: -0.01em; }

@@ -1,14 +1,14 @@
 ---
-title: "Frosted window graphics"
-client: "[Client]"
+title: "Stadium exterior banner"
+client: "Philadelphia Phillies"
 city: "Philadelphia"
 state: "PA"
 application: exterior
-specs: "[Sq ft] · etched vinyl · retail storefront · South Philly"
+specs: "[Size] · large-format exterior banner · stadium façade · [Install]"
 featured: true
-order: 4
-# hero: ./hero.jpg          ← drop the wide finished-install photo in this folder and uncomment
-# gallery: [./detail.jpg, ./install.jpg]
+order: 2
+hero: ./hero.jpg
+gallery: [./detail-1.jpg]
 ---
 ## The brief
 

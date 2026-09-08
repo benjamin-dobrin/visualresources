@@ -1,14 +1,14 @@
 ---
-title: "Booth backdrop & stands"
+title: "Parking garage wayfinding"
 client: "[Client]"
 city: "[City]"
 state: ""
-application: events
-specs: "[Booth size] · backdrop + stands · shipped to [venue] · installed day 0"
+application: environments
+specs: "Level graphics P1–P3 · paint + vinyl · elevator lobbies and glazing"
 featured: true
-order: 2
-# hero: ./hero.jpg          ← drop the wide finished-install photo in this folder and uncomment
-# gallery: [./detail.jpg, ./install.jpg]
+order: 4
+hero: ./hero.jpg
+gallery: [./detail-1.jpg, ./detail-2.jpg]
 ---
 ## The brief
 

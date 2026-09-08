@@ -1,14 +1,14 @@
 ---
-title: "Grand opening banner"
+title: "Cafeteria wall wrap and etched glass"
 client: "[Client]"
 city: "[City]"
 state: ""
-application: campaign
-specs: "[Size] · event banner · [Material] · [Install]"
+application: environments
+specs: "[Size] · printed wall wrap + etched-glass film · corporate cafeteria"
 featured: true
-order: 6
-# hero: ./hero.jpg          ← drop the wide finished-install photo in this folder and uncomment
-# gallery: [./detail.jpg, ./install.jpg]
+order: 5
+hero: ./hero.jpg
+gallery: [./detail-1.jpg, ./detail-2.jpg]
 ---
 ## The brief
 
