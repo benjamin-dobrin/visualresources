@@ -27,40 +27,52 @@ not touched until launch day.
 | Editing | A git-based CMS (Pages CMS or Decap; five-minute trial decides) so a non-technical editor adds work via a form. |
 | Analytics | Optional, later. Cloudflare Web Analytics or Plausible if wanted. |
 
-## URL map
+## Scope: launch small
 
-New pages, and the old addresses that must keep working.
+Only the homepage has been designed (C2 + red closing plate). Version 1 is that
+homepage plus the four pages it links to and nothing else. Everything the strategy
+brief proposed beyond that is listed under "Later" and is added only when there is
+real content for it.
+
+### Version 1 (five page types)
 
 | URL | Page | Notes |
 |---|---|---|
-| `/` | Home | C2 layout |
-| `/work/` | Work index | filter by application and city |
-| `/work/<slug>/` | Case study | one Markdown folder each |
-| `/capabilities/` | Capabilities overview | six groups |
-| `/capabilities/<slug>/` | Capability page | environments, exterior, events, campaign, construction, film |
-| `/rollouts/` | Rollouts & national installation | the differentiator; job-ticket panels from C3 |
-| `/agencies/` | For agencies | white-label production |
-| `/about/` | About | story, team, network, insurance/permits/ADA facts |
-| `/philadelphia/`, `/new-york/` | City pages | local work, install notes |
-| `/start/` | Start a project | form, booking link, phones |
-| `/story` | old Our Story | redirect → `/about/` |
-| `/work/cafe-sign`, `/work/van-wraps`, `/work/lobby-letters`, `/work/window-graphics`, `/work/trade-show-booth`, `/work/grand-opening-banner` | old case studies | keep slugs if the projects survive, else redirect → `/work/` |
+| `/` | Home | the C2 design |
+| `/work/` | Work index | the proof sheet, extended; all projects |
+| `/work/<slug>/` | Case study | one Markdown folder each; same look as the home's proof frames |
+| `/rollouts/` | Rollouts & national installation | one page; the differentiator, so it earns a page of its own |
+| `/about/` | About | story, how the network is vetted, facts (insurance, permits, ADA) |
+| `/start/` | Start a project | the red plate and form as a full page |
+
+Nav for v1: Work · Rollouts · About · Start a project. ("Capabilities" and "For
+agencies" drop out of the nav until their pages exist; the homepage's three pillars
+already cover capabilities at a glance.)
+
+Old addresses: `/story` redirects to `/about/`. The six old `/work/<slug>` pages keep
+their slugs if the projects survive as case studies, otherwise redirect to `/work/`.
+
+### Later, when content exists
+
+Capability pages (six groups), For agencies, Philadelphia and New York city pages,
+guides. Each is a template plus content and can be added without changing anything built in v1.
 
 ## Content model (what the editor fills in)
 
 `src/content/work/<slug>/index.md` + photos in the same folder
 
 ```
-title, client (or "[Client]"), industry, city, state, year,
+title, client (or "[Client]"), city, state, year,
 application (one of: environments | exterior | events | campaign | construction | film),
-services (list), specs (one line: size · material · qty · footprint · install),
+specs (one line: size · material · qty · footprint · install),
 hero (image), gallery (list of images), featured (true/false), order (number),
 body: The brief / What we did / The result
 ```
 
-`src/content/capabilities/<slug>.md` — title, summary, what's included, related work.
-`src/content/testimonials/*.md` — quote, name, title, company.
-`src/data/site.json` — phones, email, booking link, stats (locations installed, states), client logos.
+`src/data/site.json` — phones, email, booking link, stats (locations installed, states),
+client logos, up to three testimonials (quote, name, title, company).
+
+That is the whole model: one folder per project, one settings file. No other collections in v1.
 
 ## Pages and components to build
 
@@ -74,7 +86,7 @@ Components: `Nav`, `Footer`, `Hero` (photo + paper card), `TrustStrip`, `Pillars
 1. **Scaffold** Astro project on `redesign`; tokens, fonts, Base layout, Nav, Footer. Preview live on the fork.
 2. **Home** exactly to the C2 + red plate design, responsive to 390px. Photo placeholders until real photos arrive.
 3. **Work**: content collection, case study template, work index. Port the six existing case studies as drafts.
-4. **Rollouts, Capabilities, For agencies, About, city pages, Start a project.**
+4. **Rollouts, About, Start a project.** Three simple pages reusing home components.
 5. **Form**: wire to the existing Apps Script, add file link, success/error states.
 6. **CMS** trial and config; short editor guide in `docs/EDITING.md`.
 7. **SEO/technical**: OG image, LocalBusiness schema (both cities), sitemap, robots, redirects.
