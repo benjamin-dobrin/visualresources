@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import StartProject from '../../components/StartProject.astro';
+import { getCollection, render } from 'astro:content';
+import { applications, url } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work');
+  return work.map((w) => ({ params: { slug: w.id }, props: { entry: w } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const place = [d.city, d.state].filter(Boolean).join(', ');
+---
+<Base title={d.title} description={d.summary ?? `${d.title} — ${applications[d.application]} produced and installed by Visual Resources in ${place}.`}>
+  <article class="case wrap">
+    <a class="mono crumb" href={url('/work/')}>← All work</a>
+    <p class="k k-red tag">{applications[d.application]} · {place}</p>
+    <h1 class="display">{d.title}</h1>
+    <Photo src={d.hero} alt={d.title} tone="stone" label={`PHOTO — hero. Your best wide shot of the finished ${d.title.toLowerCase()}.`} class="hero" sizes="100vw" loading="eager" />
+    <div class="body">
+      <div class="prose"><Content /></div>
+      <aside class="specs">
+        <p class="mono head">Job specs</p>
+        <dl>
+          <dt>Client</dt><dd>{d.client}</dd>
+          <dt>Location</dt><dd>{place}</dd>
+          <dt>Application</dt><dd>{applications[d.application]}</dd>
+          <dt>Spec</dt><dd>{d.specs}</dd>
+          {d.year && <><dt>Year</dt><dd>{d.year}</dd></>}
+        </dl>
+      </aside>
+    </div>
+    {d.gallery.length > 0 && (
+      <div class="gallery">{d.gallery.map((g) => <Photo src={g} alt={d.title} sizes="(max-width: 900px) 100vw, 50vw" />)}</div>
+    )}
+  </article>
+  <StartProject heading="Need something like this?" />
+</Base>
+
+<style>
+  .case { padding-top: 32px; padding-bottom: var(--section); display: flex; flex-direction: column; gap: 22px; }
+  .crumb { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.02; letter-spacing: -0.01em; max-width: 16em; }
+  .case :global(.hero) { aspect-ratio: 16 / 9; margin-top: 18px; }
+  .body { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; margin-top: 32px; align-items: start; }
+  .prose { grid-column: span 7; }
+  .specs { grid-column: 9 / span 4; border: 1px solid var(--ink); }
+  .head { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 10px 16px; }
+  dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0; }
+  dt, dd { padding: 12px 16px; border-top: 1px solid var(--rule); font-size: 14px; }
+  dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  dd { margin: 0; text-align: right; }
+  .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+  .gallery :global(.photo) { aspect-ratio: 4 / 3; }
+  @media (max-width: 900px) { .prose, .specs { grid-column: span 12; } .gallery { grid-template-columns: 1fr; } }
+</style>

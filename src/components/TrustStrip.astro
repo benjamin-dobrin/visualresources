@@ -1,0 +1,23 @@
+---
+import { site } from '../lib/site';
+const logos = site.client_logos as { name: string; src: string }[];
+const widths = [96, 72, 110, 84, 100, 78];
+---
+<section class="trust wrap">
+  <span class="k">Trusted by</span>
+  <div class="logos">
+    {logos.length
+      ? logos.map((l) => <img src={l.src} alt={l.name} height="22" />)
+      : widths.map((w) => <span class="ph" style={`width: ${w}px`}></span>)}
+  </div>
+  {!logos.length && <span class="mono note">[CLIENT LOGOS]</span>}
+</section>
+
+<style>
+  .trust { display: flex; align-items: center; gap: 40px; padding-top: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+  .logos { display: flex; gap: 48px; align-items: center; flex: 1; overflow: hidden; }
+  .logos img { height: 22px; width: auto; opacity: 0.85; }
+  .ph { display: block; height: 18px; background: var(--rule); flex-shrink: 0; }
+  .note { font-size: 11px; color: var(--frame); white-space: nowrap; }
+  @media (max-width: 680px) { .trust { gap: 20px; } .logos { gap: 24px; } .note { display: none; } }
+</style>

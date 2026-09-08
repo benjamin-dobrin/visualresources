@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import StartProject from '../components/StartProject.astro';
+const facts = [
+  ['Founded', '2011, Philadelphia'],
+  ['Bases', 'Philadelphia · New York'],
+  ['Reach', 'Nationwide, through a vetted network of fabricators and installers'],
+  ['Insurance', '[Carried; certificate available for any site]'],
+  ['Permits', '[We produce drawings and handle landlord and permit submissions]'],
+  ['ADA', '[Compliant packages to code]'],
+  ['Union', '[Union-capable installs in New York and Philadelphia, if applicable]'],
+];
+---
+<Base title="About" description="Visual Resources started in Philadelphia in 2011 and produces signage, graphics and environments for brands across the country, with one producer on every job.">
+  <section class="intro wrap">
+    <p class="k k-red">About</p>
+    <h1 class="display">Fifteen years, one job at a time.</h1>
+    <p class="lede">Visual Resources sits in the middle of everything a sign needs to exist: the client with an idea, the designer who shapes it, the printer and fabricator who build it, the crew who puts it up. One producer connects those dots on every job.</p>
+  </section>
+  <section class="story wrap">
+    <div class="prose">
+      <h2>How it started</h2>
+      <p>[Two or three paragraphs in your own voice: what you were doing before, the first sign job, why you built it alone, what Philadelphia means to the business. Specific details make this page memorable.]</p>
+      <h2>How we work</h2>
+      <p>When you hire a big sign company, your project passes through a salesperson, a project manager, a designer and a subcontractor. When you hire us, you talk to the producer who specs it, sources it, checks it and makes sure it goes up straight.</p>
+      <p>We own no press, and that is the point. Over fifteen years we have built a network of printers, fabricators and installers across the country, and we choose the right one for each job with no capacity bias. Big-shop capability, small-shop accountability.</p>
+      <h2>What's next</h2>
+      <p>[The growth story: the team you are bringing on, and how the one-producer promise survives it.]</p>
+    </div>
+    <div class="side">
+      <Photo tone="sand" label="PHOTO — portrait, or the producer on site." class="portrait" sizes="(max-width: 900px) 100vw, 33vw" />
+      <dl>
+        {facts.map(([k, v]) => <><dt class="mono">{k}</dt><dd>{v}</dd></>)}
+      </dl>
+    </div>
+  </section>
+  <StartProject />
+</Base>
+
+<style>
+  .intro { padding-top: 64px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 22px; }
+  h1 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.02; letter-spacing: -0.01em; max-width: 16em; }
+  .intro .lede { max-width: 38em; }
+  .story { padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start; }
+  .prose { grid-column: span 7; }
+  .side { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 24px; }
+  .side :global(.portrait) { aspect-ratio: 4 / 5; }
+  dl { margin: 0; display: grid; grid-template-columns: 90px 1fr; border-bottom: 1px solid var(--ink); }
+  dt, dd { padding: 12px 0; border-top: 1px solid var(--rule); margin: 0; font-size: 14px; }
+  dt { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 15px; }
+  @media (max-width: 900px) { .prose, .side { grid-column: span 12; } }
+</style>

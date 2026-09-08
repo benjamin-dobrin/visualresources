@@ -1,0 +1,25 @@
+---
+import Photo from './Photo.astro';
+import CmykDots from './CmykDots.astro';
+import { site } from '../lib/site';
+const t = site.testimonials[0];
+---
+{t && (
+  <section class="quote wrap">
+    <Photo tone="steel" label="PHOTO — install day. A crew on a lift, or a crate being opened." class="pic" />
+    <blockquote>
+      <CmykDots />
+      <p class="serif"><em>“{t.quote}”</em></p>
+      <cite class="mono">{t.name} · {t.title} · {t.company}</cite>
+    </blockquote>
+  </section>
+)}
+
+<style>
+  .quote { padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: center; }
+  .quote :global(.pic) { grid-column: span 5; aspect-ratio: 4 / 3; }
+  blockquote { grid-column: 7 / span 6; margin: 0; display: flex; flex-direction: column; gap: 22px; }
+  blockquote p { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; letter-spacing: -0.01em; }
+  cite { font-style: normal; font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+  @media (max-width: 900px) { .quote :global(.pic), blockquote { grid-column: span 12; } }
+</style>

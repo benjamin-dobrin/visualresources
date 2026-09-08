@@ -1,0 +1,22 @@
+<section class="pillars wrap">
+  <div class="statement">
+    <p class="k">What we take off your plate</p>
+    <h2 class="h-display">You send a file, or an idea. We hand back an installed job.</h2>
+  </div>
+  <div class="list">
+    <div><h3>Design &amp; pre-press</h3><p>Concepts, site surveys, landlord and permit drawings, color-managed proofs.</p></div>
+    <div><h3>Production</h3><p>The right fabricator for each job from a vetted national network. Inspected before it ships.</p></div>
+    <div><h3>Logistics &amp; install</h3><p>Freight, staging, certified crews in every state, completion photos from each site.</p></div>
+  </div>
+</section>
+
+<style>
+  .pillars { padding-top: var(--section); padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; }
+  .statement { grid-column: span 7; display: flex; flex-direction: column; gap: 22px; }
+  .statement h2 { max-width: 14em; }
+  .list { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 26px; align-self: end; }
+  .list div { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--ink); padding-top: 14px; }
+  h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; }
+  .list p { font-size: 14.5px; line-height: 1.6; color: var(--body); }
+  @media (max-width: 900px) { .statement { grid-column: span 12; } .list { grid-column: span 12; } }
+</style>

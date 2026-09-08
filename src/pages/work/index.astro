@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProofSheet from '../../components/ProofSheet.astro';
+import StartProject from '../../components/StartProject.astro';
+import { getCollection } from 'astro:content';
+const work = (await getCollection('work', (w) => !w.data.draft)).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Work" description="Signage, graphics and environments produced and installed by Visual Resources, in Philadelphia, New York and across the country.">
+  <div class="top wrap"><p class="k">Work</p></div>
+  <ProofSheet items={work} heading="Everything we've put up" sheet="PROOF SHEET · ALL" allLink={false} />
+  <StartProject heading="Need something like this?" />
+</Base>
+<style>
+  .top { padding-top: 48px; }
+</style>

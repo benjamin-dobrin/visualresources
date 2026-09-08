@@ -1,0 +1,59 @@
+---
+import { url } from '../lib/site';
+const links = [
+  { href: '/work/', label: 'Work' },
+  { href: '/rollouts/', label: 'Rollouts' },
+  { href: '/about/', label: 'About' },
+];
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+---
+<header class="nav wrap">
+  <a class="brand" href={url('/')} aria-label="Visual Resources, home">
+    <img src={url('/images/logo.svg')} alt="Visual Resources" width="135" height="50" />
+  </a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+  <nav id="site-menu" class="menu-panel">
+    <ul>
+      {links.map((l) => (
+        <li><a href={url(l.href)} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a></li>
+      ))}
+    </ul>
+    <div class="right">
+      <span class="mono where">PHL · NYC · NATIONWIDE</span>
+      <a class="btn btn-red" href={url('/start/')}>Start a project</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; border-bottom: 1px solid var(--rule); gap: 24px; position: relative; }
+  .brand img { height: 34px; width: auto; }
+  .menu-panel { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 24px; }
+  ul { display: flex; align-items: center; justify-content: center; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 15px; font-weight: 500; flex: 1; }
+  a[aria-current="page"] { color: var(--red); }
+  .right { display: flex; align-items: center; gap: 22px; }
+  .where { font-size: 12px; letter-spacing: 0.06em; color: var(--muted); }
+  .menu { display: none; font: 600 13px/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; background: none; border: 1.5px solid var(--ink); padding: 10px 14px; cursor: pointer; color: var(--ink); }
+  .nav .btn { padding: 12px 20px; font-size: 14px; }
+  @media (max-width: 900px) {
+    .where { display: none; }
+    ul { gap: 22px; }
+  }
+  @media (max-width: 680px) {
+    .menu { display: block; }
+    .menu-panel { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--rule); flex-direction: column; align-items: stretch; padding: 20px var(--pad) 28px; gap: 20px; z-index: 20; }
+    .menu-panel.open { display: flex; }
+    ul { flex-direction: column; align-items: flex-start; gap: 14px; font-size: 18px; }
+    .right { justify-content: flex-start; }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.nav .menu');
+  const panel = document.getElementById('site-menu');
+  btn?.addEventListener('click', () => {
+    const open = panel?.classList.toggle('open') ?? false;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Close' : 'Menu';
+  });
+</script>

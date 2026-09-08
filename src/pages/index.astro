@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Pillars from '../components/Pillars.astro';
+import ProofSheet from '../components/ProofSheet.astro';
+import RolloutBand from '../components/RolloutBand.astro';
+import ProcessLedger from '../components/ProcessLedger.astro';
+import PullQuote from '../components/PullQuote.astro';
+import StartProject from '../components/StartProject.astro';
+import { getCollection } from 'astro:content';
+
+const work = (await getCollection('work', (w) => !w.data.draft && w.data.featured))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+---
+<Base>
+  <Hero />
+  <TrustStrip />
+  <Pillars />
+  <ProofSheet items={work} />
+  <RolloutBand />
+  <ProcessLedger />
+  <PullQuote />
+  <StartProject />
+</Base>

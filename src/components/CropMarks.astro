@@ -1,0 +1,15 @@
+---
+interface Props { color?: string; inset?: string; size?: string }
+const { color = 'var(--ink)', inset = '14px', size = '22px' } = Astro.props;
+---
+<span class="crop" aria-hidden="true" style={`--c: ${color}; --i: ${inset}; --s: ${size}`}>
+  <i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+</span>
+<style>
+  .crop { position: absolute; inset: 0; pointer-events: none; }
+  .crop i { position: absolute; width: var(--s); height: var(--s); border: 0 solid var(--c); }
+  .tl { left: var(--i); top: var(--i); border-left-width: 1.5px; border-top-width: 1.5px; }
+  .tr { right: var(--i); top: var(--i); border-right-width: 1.5px; border-top-width: 1.5px; }
+  .bl { left: var(--i); bottom: var(--i); border-left-width: 1.5px; border-bottom-width: 1.5px; }
+  .br { right: var(--i); bottom: var(--i); border-right-width: 1.5px; border-bottom-width: 1.5px; }
+</style>

@@ -1,0 +1,37 @@
+---
+const steps = [
+  { n: '1', title: 'Brief', body: 'Files, a photo of the space, or a sentence. Site survey if it needs one.', get: 'You get: scope and ballpark within one business day' },
+  { n: '2', title: 'Spec & proof', body: 'Materials recommended and explained. Proofs revised until approved.', get: 'You get: fixed quote, proof PDF, color drawdown' },
+  { n: '3', title: 'Production', body: 'The right fabricator for the job. We inspect before anything ships.', get: 'You get: QC photos, tracking, a dated schedule' },
+  { n: '4', title: 'Install', body: 'Certified crews, permits handled, punch list closed.', get: 'You get: completion photos and sign-off from every site' },
+];
+---
+<section class="process wrap">
+  <div class="head">
+    <p class="k">How it works</p>
+    <h2 class="h-display">Four stages. Something concrete at each one.</h2>
+  </div>
+  <div class="ledger">
+    {steps.map((s, i) => (
+      <div class="row">
+        <span class:list={['serif', 'n', { red: i === 0 }]}>{s.n}</span>
+        <div class="what"><h3 class="serif">{s.title}</h3><p>{s.body}</p></div>
+        <span class="spec">{s.get}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .process { padding-top: var(--section); padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; }
+  .head { grid-column: span 4; display: flex; flex-direction: column; gap: 16px; }
+  .head h2 { font-size: clamp(32px, 3.4vw, 48px); }
+  .ledger { grid-column: 6 / span 7; display: flex; flex-direction: column; border-bottom: 1px solid var(--ink); }
+  .row { display: grid; grid-template-columns: 56px 1fr 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--ink); align-items: baseline; }
+  .n { font-size: 34px; line-height: 1; }
+  .n.red { color: var(--red); }
+  .what { display: flex; flex-direction: column; gap: 6px; }
+  h3 { font-size: 26px; line-height: 1.1; }
+  .what p { font-size: 14.5px; line-height: 1.6; color: var(--body); }
+  @media (max-width: 900px) { .head, .ledger { grid-column: span 12; } .row { grid-template-columns: 40px 1fr; } .row .spec { grid-column: 2; } }
+</style>

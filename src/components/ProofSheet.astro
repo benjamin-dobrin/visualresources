@@ -1,0 +1,48 @@
+---
+import Photo from './Photo.astro';
+import { url, tones } from '../lib/site';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { items: CollectionEntry<'work'>[]; heading?: string; sheet?: string; allLink?: boolean; eyebrow?: string }
+const { items, heading = 'Selected work', sheet = 'PROOF SHEET 01', allLink = true, eyebrow } = Astro.props;
+const total = items.length;
+---
+<section class="proof wrap">
+  <div class="head">
+    <div class="title">
+      {eyebrow && <p class="k">{eyebrow}</p>}
+      <div class="row">
+        <h2 class="display">{heading}</h2>
+        <span class="mono sheet">{sheet} · {total} {total === 1 ? 'FRAME' : 'FRAMES'}</span>
+      </div>
+    </div>
+    {allLink && <a class="link-rule" href={url('/work/')}>All work</a>}
+  </div>
+  <div class="grid">
+    {items.map((w, i) => (
+      <a class="frame" href={url(`/work/${w.id}/`)}>
+        <span class="num mono"><span>{String(i + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</span><span>{w.data.city.toUpperCase()}</span></span>
+        <Photo src={w.data.hero} alt={w.data.title} tone={tones[i % tones.length]} label={`PHOTO — ${w.data.title}`} class="thumb" sizes="(max-width: 680px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+        <h3 class="serif">{w.data.title}</h3>
+        <span class="spec">{w.data.specs}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .proof { padding-bottom: var(--section); display: flex; flex-direction: column; gap: 32px; }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; border-bottom: 1.5px solid var(--ink); padding-bottom: 16px; }
+  .title { display: flex; flex-direction: column; gap: 14px; }
+  .row { display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+  h2 { font-size: clamp(34px, 3.6vw, 52px); line-height: 1; letter-spacing: -0.01em; }
+  .sheet { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
+  .frame { display: flex; flex-direction: column; gap: 12px; color: inherit; }
+  .frame:hover h3 { color: var(--red); }
+  .num { font-size: 11px; letter-spacing: 0.08em; color: var(--muted); display: flex; justify-content: space-between; }
+  .frame :global(.thumb) { aspect-ratio: 4 / 3; border: 1px solid var(--ink); }
+  h3 { font-size: 24px; line-height: 1.15; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } .head { flex-direction: column; align-items: flex-start; } }
+</style>

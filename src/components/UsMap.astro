@@ -1,0 +1,19 @@
+---
+import { site } from '../lib/site';
+const dots = site.map_dots as [number, number][];
+---
+<div class="map">
+  <svg viewBox="0 0 520 380" width="100%" height="100%" aria-hidden="true">
+    <path d="M40 110 L120 92 L220 86 L310 88 L370 100 L410 96 L460 120 L478 160 L455 200 L440 250 L380 300 L310 310 L260 290 L190 300 L130 270 L70 220 L35 160 Z" fill="none" stroke="var(--ink)" stroke-width="1.5"></path>
+    <circle cx="410" cy="150" r="7" fill="var(--red)"></circle><text x="424" y="170">Philadelphia</text>
+    <circle cx="428" cy="132" r="7" fill="var(--red)"></circle><text x="442" y="126">New York</text>
+    {dots.map(([x, y]) => <circle cx={x} cy={y} r="4" fill="var(--ink)"></circle>)}
+  </svg>
+  <span class="mono note">MAP — {site.map_note}</span>
+</div>
+<style>
+  .map { position: relative; aspect-ratio: 520 / 380; }
+  svg { display: block; }
+  text { font-family: var(--sans); font-size: 12px; fill: var(--ink); }
+  .note { position: absolute; left: 0; bottom: 0; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+</style>

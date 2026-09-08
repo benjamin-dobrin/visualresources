@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import RolloutBand from '../components/RolloutBand.astro';
+import ProcessLedger from '../components/ProcessLedger.astro';
+import StartProject from '../components/StartProject.astro';
+const ticket = [
+  ['Producer', 'One, start to finish'],
+  ['Proof set', 'One approved set for every site'],
+  ['Fabrication', 'Split by region so freight stays short'],
+  ['Schedule', 'One dated plan, shared before production'],
+  ['Install', 'Certified crews, permits handled'],
+  ['Close-out', 'Completion photos from every site before the invoice'],
+];
+---
+<Base title="Rollouts & national installation" description="Multi-location signage and graphics programs run by one producer: one proof set, regional fabrication, certified installers in every state, completion photos from every site.">
+  <section class="intro wrap">
+    <p class="k k-red">Rollouts &amp; national installation</p>
+    <h1 class="display">Same graphics, forty sites, one install window.</h1>
+    <p class="lede">A rollout fails in the gaps between vendors: a proof approved in one region and not another, freight that arrives after the crew, a site nobody photographed. We close the gaps by owning the whole job.</p>
+  </section>
+  <RolloutBand link={false} />
+  <section class="ticket wrap">
+    <div class="head"><p class="k">What every rollout gets</p><h2 class="h-display">The job ticket</h2></div>
+    <dl>
+      {ticket.map(([k, v]) => <><dt class="mono">{k}</dt><dd class="serif">{v}</dd></>)}
+    </dl>
+  </section>
+  <ProcessLedger />
+  <StartProject heading="Planning a rollout? Start here." />
+</Base>
+
+<style>
+  .intro { padding-top: 64px; padding-bottom: var(--section); display: flex; flex-direction: column; gap: 22px; }
+  h1 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.02; letter-spacing: -0.01em; max-width: 16em; }
+  .intro .lede { max-width: 38em; }
+  .ticket { padding-top: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; }
+  .head { grid-column: span 4; display: flex; flex-direction: column; gap: 16px; }
+  dl { grid-column: 6 / span 7; margin: 0; display: grid; grid-template-columns: 160px 1fr; border-bottom: 1px solid var(--ink); }
+  dt, dd { padding: 16px 0; border-top: 1px solid var(--ink); margin: 0; }
+  dt { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 22px; }
+  dd { font-size: 24px; line-height: 1.2; }
+  @media (max-width: 900px) { .head, dl { grid-column: span 12; } dl { grid-template-columns: 120px 1fr; } }
+</style>
