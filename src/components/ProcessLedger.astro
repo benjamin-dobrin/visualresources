@@ -34,5 +34,16 @@ const steps = [
   h3 { font-size: 26px; line-height: 1.1; }
   .what p { font-size: 14.5px; line-height: 1.6; color: var(--body); }
   @media (max-width: 900px) { .head, .ledger { grid-column: span 12; } .row { grid-template-columns: 40px 1fr; } .row .spec { grid-column: 2; } }
-  @media (max-width: 680px) { h3 { font-size: 22px; } .row { padding: 18px 0; } .n { font-size: 30px; } }
+  /* On a phone this was 870px tall for four short steps. The number column shrinks, the
+     row gap closes, and the deliverable line tucks under its step instead of a row away. */
+  @media (max-width: 680px) {
+    .process { gap: 18px; }
+    .head h2 { font-size: 26px; }
+    .row { grid-template-columns: 24px 1fr; gap: 5px 10px; padding: 13px 0; }
+    .n { font-size: 21px; }
+    h3 { font-size: 18px; line-height: 1.25; }
+    .what { gap: 3px; }
+    .what p { font-size: 14px; line-height: 1.5; }
+    .row .spec { font-size: 11px; line-height: 1.5; }
+  }
 </style>
