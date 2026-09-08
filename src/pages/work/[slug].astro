@@ -63,4 +63,12 @@ const ogImage = heroImg
   .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
   .gallery :global(.photo) { aspect-ratio: 4 / 3; }
   @media (max-width: 900px) { .prose, .specs { grid-column: span 12; } .gallery { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) {
+    h1 { font-size: 34px; }
+    .case :global(.hero) { aspect-ratio: 4 / 3; }
+    dl { grid-template-columns: 96px 1fr; }
+    dd { text-align: left; font-size: 13.5px; }
+    dt, dd { padding: 11px 12px; }
+    dt { font-size: 10px; letter-spacing: 0.06em; }
+  }
 </style>

@@ -59,6 +59,7 @@ const installs = pins.length - bases;
   figcaption { display: flex; gap: 24px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.04em; color: var(--muted); }
   .sw { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); margin-right: 8px; vertical-align: middle; }
   .sw.base { background: var(--red); }
+  @media (max-width: 680px) { .label { display: none; } }
   @keyframes pulse { 0% { transform: scale(0.45); opacity: 0.7; } 100% { transform: scale(1.6); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .ring { animation: none; opacity: 0.35; } }
 </style>
