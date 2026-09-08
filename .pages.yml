@@ -4,10 +4,18 @@
 # and the site rebuilds itself.
 
 media:
-  input: src/media
-  output: /media
-  categories: [image]
-  extensions: [jpg, jpeg, png, webp, avif]
+  - name: photos
+    label: Photos
+    input: src/media
+    output: /media
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif]
+  - name: logos
+    label: Client logos
+    input: public/logos
+    output: /logos
+    categories: [image]
+    extensions: [svg, png]
 
 content:
   - name: work
@@ -79,6 +87,7 @@ content:
         type: image
         description: The wide finished shot. Shown large at the top of the project page.
         options:
+          media: photos
           path: src/media/work
       - name: gallery
         label: More photos
@@ -87,6 +96,7 @@ content:
         options:
           multiple:
             max: 6
+          media: photos
           path: src/media/work
       - name: featured
         label: Show on the homepage
@@ -217,6 +227,7 @@ content:
         label: Homepage photo
         type: image
         options:
+          media: photos
           path: src/media/site
       - name: hero_alt
         label: Homepage photo description
@@ -226,6 +237,7 @@ content:
         label: Photo beside the quote
         type: image
         options:
+          media: photos
           path: src/media/site
       - name: install_alt
         label: That photo's description

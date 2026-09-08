@@ -19,7 +19,33 @@
       "value": "One"
     }
   ],
-  "client_logos": [],
+  "client_logos": [
+    {
+      "name": "Philadelphia Phillies",
+      "src": "/logos/phillies.svg",
+      "mark": true
+    },
+    {
+      "name": "Merck",
+      "src": "/logos/merck.svg"
+    },
+    {
+      "name": "Jefferson Health",
+      "src": "/logos/jefferson-health.png"
+    },
+    {
+      "name": "6abc",
+      "src": "/logos/6abc.svg"
+    },
+    {
+      "name": "Ricoh",
+      "src": "/logos/ricoh.svg"
+    },
+    {
+      "name": "DonorPerfect",
+      "src": "/logos/donorperfect.svg"
+    }
+  ],
   "testimonials": [
     {
       "quote": "[Quote from a marketing director about a rollout: what usually goes wrong across forty sites, and didn't.]",
@@ -68,5 +94,6 @@
   "hero_image": "/media/site/hero.jpg",
   "hero_alt": "Large-format exterior banner installed on the façade of Citizens Bank Park, Philadelphia",
   "install_image": "/media/site/install-day.jpg",
-  "install_alt": "Crew on a boom lift installing a building-sized banner"
+  "install_alt": "Crew on a boom lift installing a building-sized banner",
+  "logo_treatment": "ink"
 }
