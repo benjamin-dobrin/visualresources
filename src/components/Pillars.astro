@@ -11,7 +11,7 @@
 </section>
 
 <style>
-  .pillars { padding-top: var(--section); padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; }
+  .pillars { padding-top: var(--section); padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px var(--grid-gap); }
   .statement { grid-column: span 7; display: flex; flex-direction: column; gap: 22px; }
   .statement h2 { max-width: 14em; }
   .list { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 26px; align-self: end; }
@@ -20,7 +20,7 @@
   .list p { font-size: 14.5px; line-height: 1.6; color: var(--body); }
   @media (max-width: 900px) { .statement { grid-column: span 12; } .list { grid-column: span 12; } }
   @media (max-width: 680px) {
-    .pillars { gap: 20px; }
+    .pillars { gap: 20px var(--grid-gap); }
     .statement { gap: 14px; }
     .list { gap: 18px; }
     .list div { padding-top: 11px; gap: 5px; }

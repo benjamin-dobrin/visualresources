@@ -16,7 +16,7 @@ const t = site.testimonials[0];
 )}
 
 <style>
-  .quote { padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: center; }
+  .quote { padding-bottom: var(--section); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px var(--grid-gap); align-items: center; }
   .quote :global(.pic) { grid-column: span 5; aspect-ratio: 4 / 3; }
   blockquote { grid-column: 7 / span 6; margin: 0; display: flex; flex-direction: column; gap: 22px; }
   blockquote p { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; letter-spacing: -0.01em; }

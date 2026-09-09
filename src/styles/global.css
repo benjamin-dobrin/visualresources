@@ -17,6 +17,9 @@
   --mono: 'IBM Plex Mono', Menlo, monospace;
   --pad: clamp(20px, 5vw, 72px);
   --section: clamp(46px, 7.5vw, 108px);
+  /* Column gap for the 12-column section grids. Full width on a desktop; narrow enough on
+     a phone that eleven gaps cannot outgrow the container and push the right gutter in. */
+  --grid-gap: clamp(14px, 3.6vw, 32px);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
