@@ -16,7 +16,7 @@ const jobs = [
 ];
 ---
 <section class:list={['start', 'wrap', { page }]} id="start">
-  <CropMarks color="rgba(246,242,234,0.75)" inset="24px" />
+  <CropMarks color="rgba(246,242,234,0.75)" inset="clamp(9px, 2.2vw, 24px)" size="clamp(16px, 3vw, 22px)" />
   <div class="copy">
     <p class="k">{eyebrow}</p>
     {page ? <h1 class="display">{heading}</h1> : <h2 class="display">{heading}</h2>}
