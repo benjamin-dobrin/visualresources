@@ -248,8 +248,10 @@ content:
       - name: client_logos
         label: Client logo files
         type: object
-        list: true
-        description: Leave empty to show client names as text instead.
+        list:
+          collapsible:
+            summary: "{name}"
+        description: "Remove them all and the client names show as text instead. Ask for an SVG, or a PNG on a transparent background."
         fields:
           - name: name
             label: Client name
@@ -257,6 +259,24 @@ content:
           - name: src
             label: Logo file
             type: image
+            options:
+              media: logos
+          - name: mark
+            label: Square mark rather than a wordmark
+            type: boolean
+            default: false
+            description: "Tick for icon-only logos like a team cap. They are drawn taller so they carry the same weight as a wordmark."
+      - name: logo_treatment
+        label: Logo colour
+        type: select
+        default: ink
+        description: "Ink prints every logo in one colour so the row reads as one object. Full colour shows each client's own brand colours."
+        options:
+          values:
+            - name: ink
+              label: One ink colour (recommended)
+            - name: colour
+              label: Full brand colour
       - name: form_endpoint
         label: Form destination
         type: string
